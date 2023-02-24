@@ -23,7 +23,7 @@ div.language, div.switch {
 
 textarea.corpus, textarea.alignment {
   min-height: 5em;
-};
+}
 
 hr {
   margin-top: 1rem;
