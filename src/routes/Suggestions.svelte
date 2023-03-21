@@ -1,5 +1,10 @@
 <script>
-  export let suggestions = '';
+  export let map;
+  export let _sourceLine;
+  export let _targetLine;  
+  
+  $: suggestions = map.predict(_sourceLine, _targetLine);
+
   let predictions;
 
   $: predictions = suggestions?.map(suggestion => {
@@ -7,8 +12,8 @@
       const {scores, predictedAlignment} = prediction;
       // console.log('predictedA', predictedAlignment);
       return {
+        alignment: predictedAlignment?.cachedKey.split('->'),
         confidence: scores?.confidence,
-        alignment: predictedAlignment?.cachedKey.replace(/n:/g,''),
       }
     })
   });
@@ -16,18 +21,18 @@
   $: console.log(predictions);
 </script>
 
-<div>
-  <div>
-    {#each predictions[0] as prediction, index (index)}
-      <div class="rounded-xl"
-        title="{prediction.confidence.toFixed(2)}"
-        style="display: inline-block; border: 1px solid grey; background-color: rgba(0,{(prediction.confidence >= 1) ? 255 : 0},{(prediction.confidence < 1) ? 255 : 0},{prediction.confidence}); padding: 0 0.5em;"
-      >
-        <div>{prediction.alignment.split('->')[0].replace(/:/g, ' ')}</div>
-        <div>
-          {@html prediction.alignment.split('->')[1].replace(/:/g, ' ') || '&nbsp;'}
-        </div>
+<div class="predictions">
+  {#each predictions[0] as prediction, index (index)}
+    <div class="prediction"
+      title="{prediction.confidence.toFixed(2)}"
+      style="background-color: rgba({(prediction.confidence < 1) ? 255 : 0},{(prediction.confidence >= 1) ? 255 : 0},0,{ prediction.confidence >= 1 ? 1 : 0.6-prediction.confidence});"
+    >
+      <div class="source word">
+        {prediction.alignment[0].replace(/^n:/, '').replaceAll(':', ' ')}
       </div>
-    {/each}
+      <div class="target word">
+        {@html prediction.alignment[1].replace(/^n:/, '').replaceAll(':', ' ') || '&nbsp;'}
+      </div>
     </div>
+  {/each}
 </div>

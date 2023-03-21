@@ -21,5 +21,4 @@ export default `
 20 saying, “Having gotten up, take the child and his mother and go to the land of Israel, for the ones seeking the life of the child have died.”
 21 And he, having gotten up, took the child and his mother, and entered into the land of Israel.
 22 But having heard that Archelaus is reigning over Judea in the place of his father Herod, he was afraid to go there. But having been warned by means of a dream, he withdrew to the region of Galilee,
-23 and having gone there, he lived in a city being called Nazareth, so that it might be fulfilled {what} was spoken through the prophets, that he will be called a Nazarene.
-`;
+23 and having gone there, he lived in a city being called Nazareth, so that it might be fulfilled {what} was spoken through the prophets, that he will be called a Nazarene.`;

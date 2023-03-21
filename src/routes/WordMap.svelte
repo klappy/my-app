@@ -5,8 +5,6 @@
   import Suggestions from "./Suggestions.svelte";
 
   import {
-    line,
-    lines,
     sourceLine,
     targetLine,
     sourceAlignment,
@@ -16,34 +14,51 @@
   } from "../stores";
 
   let map;
-  let suggestions;
+  let corpus;
 
   $: {
     map = new WordMap();
+    corpus = [];
+    let alignmentMemory = [];
 
-    $sourceAlignment?.split("\n").forEach((_source, i) => {
-      const _target = $targetAlignment?.split("\n")[i];
-      if (_source && _target) map.appendAlignmentMemoryString(_source, _target);
+    const _sourceAlignment = $sourceAlignment?.split("\n") || [];
+    const _targetAlignment = $targetAlignment?.split("\n") || [];
+    // only add a corpus if you actually have one
+    const _sourceCorpus = $sourceCorpus?.split("\n") || [];
+    const _targetCorpus = $targetCorpus?.split("\n") || [];
+
+    _sourceAlignment.forEach((_source, i) => {
+      const _target = _targetAlignment[i];
+      if (_source?.length && _target?.length) alignmentMemory.push([_source, _target]);
+      // if (_source && _target) map.appendAlignmentMemoryString(_source, _target);
     });
 
-    // only add a corpus if you actually have one
-    if ($sourceCorpus) {
-      map.appendCorpus(
-        $sourceCorpus
-          ?.split("\n")
-          .map((_source, i) => {
-            const _target = $targetCorpus?.split("\n")[i];
-            return [_source, _target];
-          })
-          .filter(([_source, _target]) => _source && _target)
-      );
-    };
+    _sourceCorpus.forEach((_source, i) => {
+      const _target = _targetCorpus[i];
+      if (_source?.length && _target?.length) corpus.push([_source, _target]);
+    });
+    // map.appendCorpus(alignmentMemory);
 
-    suggestions = map.predict($sourceLine, $targetLine);
+    alignmentMemory.forEach((alignment) => {
+      map.appendAlignmentMemoryString(alignment[0], alignment[1]);
+      corpus.push(alignment);
+    });
+    if (corpus?.length) map.appendCorpus(corpus);
   };
+
+  let _sourceLine = $sourceLine;
+  let _targetLine = $targetLine;
+
+  $: {
+    _sourceLine = $sourceLine;
+    _targetLine = $targetLine;
+  }
 </script>
 
 <div>
+  <Suggestions {map} {_sourceLine} {_targetLine} />
   <InputForm />
-  <Suggestions {suggestions} />
+  {#each corpus as [_sourceLine, _targetLine]}
+    <Suggestions {map} {_sourceLine} {_targetLine} />
+  {/each}
 </div>

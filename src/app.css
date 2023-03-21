@@ -16,13 +16,23 @@ article {
   margin-bottom: 1em;
 }
 
+div.predictions {
+  padding: 0.5em 0;
+}
+
+div.prediction {
+  display: inline-block; 
+  border: 1px solid grey;
+  padding: 0 0.5em;
+}
+
 div.language, div.switch {
   width: 49%;
   display: inline-block;
 }
 
 textarea.corpus, textarea.alignment {
-  min-height: 5em;
+  min-height: 20em;
 }
 
 hr {

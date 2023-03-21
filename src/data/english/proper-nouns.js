@@ -4630,5 +4630,4 @@ Omega
 Jesus
 of David
 Jesus
-Jesus
-`;
+Jesus`;

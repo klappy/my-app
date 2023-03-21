@@ -1493,17 +1493,17 @@ word-wrap@^1.2.3:
   resolved "https://registry.npmjs.org/word-wrap/-/word-wrap-1.2.3.tgz"
   integrity sha512-Hz/mrNwitNRh/HUAtM/VT/5VH+ygD6DV7mYKZAtHOrbs8U7lvPS6xf7EJKMF0uW1KJCl0H701g3ZGus+muE5vQ==
 
-wordmap-lexer@^0.3.4:
+wordmap-lexer@^0.3.5:
   version "0.3.6"
   resolved "https://registry.yarnpkg.com/wordmap-lexer/-/wordmap-lexer-0.3.6.tgz#69b474c2bb58e6ecc36f9533efb24b512d198f40"
   integrity sha512-7yyNIW6E4ea5vgaqvgcXihjZlVrlEg4KUuHdkmSC3O73yyTZs8YUY7ipGpHI2zWwgErTwfWCLXZ49s8eJoVn8g==
   dependencies:
     string-punctuation-tokenizer "2.0.0"
 
-wordmap@^0.4.4:
-  version "0.4.4"
-  resolved "https://registry.yarnpkg.com/wordmap/-/wordmap-0.4.4.tgz#6c22fb0187f3ca69fe222e4c2cd903633b00a9e2"
-  integrity sha512-R/VnX7eySrc/Tp35/8N+bvwhBndzEME6poitdGncMe3BAOUo8VIDRtD55Kjso7gTvg8hWkdcfqJGRL4I4zBxMA==
+wordmap@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/wordmap/-/wordmap-0.6.0.tgz#505aae067e0b1a6a1b0f36c70169153fcaa3648a"
+  integrity sha512-/oRhbY+q+hLeEZzWkBtt9GXx5P1R6WssM2+VrjYwe/ciC0msSZwG142aWc4miSUlxtGMB+cHgJXTKQEiW6GYcw==
   dependencies:
     "@types/yargs" "^11.0.0"
     yargs "^11.0.0"

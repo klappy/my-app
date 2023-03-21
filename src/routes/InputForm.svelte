@@ -41,6 +41,9 @@
 </script>
 
 <div>
+  <div style="width: 100%; text-align: center; margin: 0.5em;">
+    <Pagination total={$lines-1} pageSize={1} rangeBetween={10} bind:current={$line} />
+  </div>
   <div class="language">
     <Select label="language" class="language" bind:value={$language}>
       {#each languages as _language}
@@ -64,8 +67,5 @@
   <div style="width: 100%">
     <Input label="Source Alignment Memory" class="alignment" type="textarea" value={$sourceAlignment} on:change={(e)=>{ $sourceAlignment = e.target.value; }} />
     <Input label="Target Alignment Memory" class="alignment" type="textarea" value={$targetAlignment} on:change={(e)=>{ $targetAlignment = e.target.value; }} />
-  </div>
-  <div style="width: 100%; text-align: center; margin: 0.5em;">
-    <Pagination total={$lines} pageSize={1} rangeBetween={2} bind:current={$line} />
   </div>
 </div>

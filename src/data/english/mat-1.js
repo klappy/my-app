@@ -23,5 +23,4 @@ export default `
 22 Now all this happened so that might be fulfilled {what} was spoken by the Lord through the prophet, saying,
 23 “Behold, the virgin will have in her womb and bear a son, and they will call his name Immanuel”—which is translated, “God with us.”
 24 And Joseph, having been awakened from sleep, did as the angel of the Lord commanded him and took her {as} his wife.
-25 And he did not know her until she bore a son. And he called his name Jesus.
-`;
+25 And he did not know her until she bore a son. And he called his name Jesus.`;

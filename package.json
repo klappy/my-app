@@ -27,7 +27,7 @@
 		"papercss": "^1.9.1",
 		"spaper": "^1.0.0",
 		"svelte": "^3.55.1",
-		"wordmap": "^0.4.4",
-		"wordmap-lexer": "^0.3.4"
+		"wordmap": "^0.6.0",
+		"wordmap-lexer": "^0.3.5"
 	}
 }
